@@ -1,4 +1,5 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
+
 import {
   //CBadge,
   CCard,
@@ -56,10 +57,14 @@ const FollowUp = () => {
     setDetails(newDetails)
   }
   const [redirect, setRedirect] = useState(false);
-
-  function onUpdateEquirer() {
+  const [redirect1, setRedirect1] = useState(false);
+    function onUpdateEnquirer() {
 
     setRedirect(true);
+}
+function onConfirmEnquirer() {
+
+  setRedirect1(true);
 }
 
   return (
@@ -110,11 +115,12 @@ const FollowUp = () => {
                                   <p className="text-muted">Enquirer ID:{item.id}</p>
                                   <p className="text-muted">Enquirer Name:{item.name}</p>
                                   <p className="text-muted">Enquirer comment:{item.comment}</p>
-                                  <CButton size="sm" color="success" className="ml-1">
-                                    Confirm
+                                  <CButton size="sm" color="success" className="ml-1" onClick={onConfirmEnquirer} >
+                                    Confirm{redirect1?<Redirect push to="/student/StudentForm"/>:null}
                                   </CButton>
-                                  <CButton size="sm" color="info" className="ml-1" onClick={onUpdateEquirer}>
-                                    Edit{redirect?<Redirect to="/enquiry/EnquiryForm"/>:null}
+                                  <CButton size="sm" color="info" className="ml-1" onClick={onUpdateEnquirer}>
+                                    Edit{redirect?<Redirect push to="/enquiry/EnquiryForm"/>:null}
+                                    
                                   </CButton>
                                   <CButton size="sm" color="danger" className="ml-1">
                                     Delete

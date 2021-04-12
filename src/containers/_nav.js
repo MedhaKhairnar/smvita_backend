@@ -1,6 +1,6 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
-
+//Here in "to:" field provide the path which are in routes array of routes.js file
 const _nav =  [
   {
     _tag: 'CSidebarNavItem',
@@ -36,42 +36,43 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'enquiryRegistration',
+    name: 'EnquiryRegistration',
     to: '/enquiry/enquiryRegistration',
     icon: 'cil-pencil',
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Student',
+    to:'/student/StudentRegistration',
     icon: 'cil-pencil',
   },{
     _tag: 'CSidebarNavItem',
     name: 'Staff',
+    to:'/staff/StaffRegistration',
     icon: 'cil-pencil',
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Payment',
+    to:'/payment/PaymentForm',
     icon: 'cil-pencil',
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Course',
+    to:'/course/CourseRegistration',
     icon: 'cil-pencil',
   },
   {
     _tag: 'CSidebarNavItem',
     name: 'Batch',
+    to:'/batch/BatchRegistration',
     icon: 'cil-pencil',
   },
-  {
-    _tag: 'CSidebarNavItem',
-    name: 'AgeGroup',
-    icon: 'cil-pencil',
-  },
-  {
+    {
     _tag: 'CSidebarNavItem',
     name: 'Gallery',
+    to:'/gallery/GalleryEdit',
     icon: 'cil-pencil',
   },
   {
