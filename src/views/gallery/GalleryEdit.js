@@ -13,7 +13,7 @@ export default class GalleryEdit extends Component {
     render() {
         return (
             <Fragment>
-                <Route path="/GalleryEdit" render={(props) => (
+                <Route path="/" render={(props) => (
                     <GalleryNavbar {...props}/>
                 )}/>
  

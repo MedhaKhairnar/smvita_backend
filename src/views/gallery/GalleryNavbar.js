@@ -17,16 +17,16 @@ export default class GalleryNavbar extends React.Component {
                 <ul className="nav justify-content-center">
                     <li className="nav-item">
                         <Link
-                            to={'/GalleryEdit'}
-                            className={`nav-link ${this.props.location.pathname === '/GalleryEdit' ? 'active' : ''}`}
+                            to={'/gallery/Gallery'}
+                            className={`nav-link ${this.props.location.pathname === '/' ? 'active' : ''}`}
                         >
                             GALLERY
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link
-                            to={'/Uploader'}
-                            className={`nav-link ${this.props.location.pathname === '/Uploader' ? 'active' : ''}`}
+                            to={'/gallery/Uploader'}
+                            className={`nav-link ${this.props.location.pathname === '/gallery/Uploader' ? 'active' : ''}`}
                         >
                             UPLOADER
                         </Link>
@@ -34,8 +34,8 @@ export default class GalleryNavbar extends React.Component {
  
                     <li className="nav-item">
                         <Link
-                            to={'/ManageGallary'}
-                            className={`nav-link ${this.props.location.pathname === '/ManageGallary' ? 'active' : ''}`}
+                            to={'/gallery/ManageGallary'}
+                            className={`nav-link ${this.props.location.pathname === '/gallery/ManageGallary' ? 'active' : ''}`}
                         >
                             MANAGE
                         </Link>

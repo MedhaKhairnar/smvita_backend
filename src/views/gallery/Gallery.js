@@ -17,13 +17,15 @@ export default class Gallery extends React.Component {
     }
     
     componentDidMount(){
-        fetch('/photos')
-            .then(response => {
-                const images = response.data;
+        //fetch('/photos')
+          //  .then(response => {
+            //    const images = response.data;
                 this.setState({
-                    images : images
+                    images : [{uri:"https://images.unsplash.com/photo-1604264849633-67b1ea2ce0a4?rnd=",width:200,height:200},
+                    {uri:"https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=",width:200,height:200}
+                    ]
                 })
-            })
+            //})
     }
     
     openLightbox(event, obj) {
@@ -52,7 +54,7 @@ export default class Gallery extends React.Component {
     render() {
         let photos = this.state.images.map(image => {
             return {
-                src : '/storage/' + image.uri,
+                src :  image.uri,
                 width : image.width,
                 height : image.height,
                 id :  image.id

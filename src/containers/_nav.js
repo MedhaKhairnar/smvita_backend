@@ -45,6 +45,12 @@ const _nav =  [
     name: 'Student',
     to:'/student/StudentRegistration',
     icon: 'cil-pencil',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'StudentManage',
+    to:'/student/StudentManage',
+    icon: 'cil-pencil',
   },{
     _tag: 'CSidebarNavItem',
     name: 'Staff',
@@ -59,8 +65,20 @@ const _nav =  [
   },
   {
     _tag: 'CSidebarNavItem',
-    name: 'Course',
-    to:'/course/CourseRegistration',
+    name: 'PaymentDetails',
+    to:'/payment/PaymentDetails',
+    icon: 'cil-pencil',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'CourseRegistration',
+    to: '/course/CourseRegistration',
+    icon: 'cil-pencil',
+  },
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'CourseList',
+    to: '/course/CourseManage',
     icon: 'cil-pencil',
   },
   {
@@ -69,7 +87,14 @@ const _nav =  [
     to:'/batch/BatchRegistration',
     icon: 'cil-pencil',
   },
-    {
+  {
+    _tag: 'CSidebarNavItem',
+    name: 'BatchManage',
+    to:'/batch/BatchManage',
+    icon: 'cil-pencil',
+  },
+
+  {
     _tag: 'CSidebarNavItem',
     name: 'Gallery',
     to:'/gallery/GalleryEdit',

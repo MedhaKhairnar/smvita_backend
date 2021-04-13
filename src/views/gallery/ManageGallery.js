@@ -61,7 +61,7 @@ export default class ManageGallery extends React.Component {
         })
     }
     componentDidMount(){
-        fetch('/photos')
+        /*fetch('/photos')
             .then(response => {
                 let images = response.data.map(image => {
                     return {
@@ -70,12 +70,21 @@ export default class ManageGallery extends React.Component {
                         height : image.height,
                         id :  image.id
                     }
-                });
- 
+                }
+                );
+                
+             
                 this.setState({
                     images : images
                 })
+            })*/
+            this.setState({
+                images : [{uri:"https://images.unsplash.com/photo-1604264849633-67b1ea2ce0a4?rnd=",width:200,height:200},
+                {uri:"https://images.unsplash.com/photo-1604164388977-1b6250ef26f3?rnd=",width:200,height:200}
+                ]
+
             })
+
     }
  
     render() {
