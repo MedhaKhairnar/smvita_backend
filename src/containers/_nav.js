@@ -56,6 +56,11 @@ const _nav =  [
     name: 'Staff',
     to:'/staff/StaffRegistration',
     icon: 'cil-pencil',
+  },{
+    _tag: 'CSidebarNavItem',
+    name: 'Staff List',
+    to:'/staff/StaffList',
+    icon: 'cil-pencil',
   },
   {
     _tag: 'CSidebarNavItem',

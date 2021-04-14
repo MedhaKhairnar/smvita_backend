@@ -7,10 +7,12 @@ const Dashboard = React.lazy(() => import('./views/dashboard/Dashboard'));
 //const CoreUIIcons = React.lazy(() => import('./views/icons/coreui-icons/CoreUIIcons'));
 const Users = React.lazy(() => import('./views/users/Users'));
 const User = React.lazy(() => import('./views/users/User'));
+const FollowUpData = React.lazy(() => import('./views/users/FollowUpData'));
 const EnquiryForm = React.lazy(() => import('./views/enquiry/EnquiryForm'));
 const StudentForm = React.lazy(() => import('./views/student/StudentForm'));
 const StudentManage = React.lazy(() => import('./views/student/StudentManage'));
 const StaffForm = React.lazy(() => import('./views/staff/StaffForm'));
+const StaffList = React.lazy(() => import('./views/staff/StaffList'));
 const CourseForm = React.lazy(() => import('./views/course/CourseRegistration/CourseForm'));
 const BatchForm = React.lazy(() => import('./views/batch/BatchForm'));
 const BatchManage= React.lazy(()=> import('./views/batch/BatchManage'));
@@ -41,6 +43,8 @@ const routes = [
   { path: '/student/StudentRegistration',  name: 'StudentForm', component: StudentForm },
   { path: '/student/StudentManage',  name: 'StudentManage', component: StudentManage },
   { path: '/staff/StaffRegistration',  name: 'StaffForm', component: StaffForm },
+  { path: '/staff/StaffForm',  name: 'StaffForm', component: StaffForm },
+  { path: '/staff/StaffList',  name: 'StaffList', component: StaffList },
   { path: '/course/CourseForm',  name: 'Course', component: CourseForm },
   { path: '/course/CourseRegistration',  name: 'CourseForm', component: CourseForm },
   { path: '/course/CourseManage',  name: 'CourseManage', component: CourseManage },

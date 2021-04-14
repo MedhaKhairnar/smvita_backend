@@ -9,21 +9,27 @@ import {
   CButton,
   CCollapse,
   CButtonGroup,
+  CInput,
+  CLabel,
   CDataTable,
   CRow
 } from '@coreui/react'
 import { DocsLink } from 'src/reusable'
 import { Redirect } from 'react-router-dom';
-import usersData from '../users/UsersData'
+import usersData from '../users/UsersData';
+import FollowUpData from '../users/FollowUpData'
 
-
+/*const fields=[
+  { key: 'id', _classes: 'font-weight-bold' },
+  'name', 'address','email'
+]*/
 
 const fields = [
   {key: 'id',_style: { width: '20%'}},
-  { key: 'name', _style: { width: '20%'} },
+  { key: 'enquirer_name', _style: { width: '20%'} },
   
-  { key: 'address', _style: { width: '20%'} },
-  { key: 'email', _style: { width: '50%'} },
+  { key: 'enquirer_address', _style: { width: '20%'} },
+  { key: 'enquirer_email', _style: { width: '50%'} },
   {
     key: 'show_details',
     label: '',
@@ -77,7 +83,7 @@ function onConfirmEnquirer() {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={FollowUpData}
               fields={fields}
               hover
               display= "flex"
@@ -113,9 +119,38 @@ function onConfirmEnquirer() {
                                     Enquirer Information
                                   </h4>
                                   <p className="text-muted">Enquirer ID:{item.id}</p>
-                                  <p className="text-muted">Enquirer Name:{item.name}</p>
-                                  <p className="text-muted">Enquirer comment:{item.comment}</p>
-                                  <CButton size="sm" color="success" className="ml-1" onClick={onConfirmEnquirer} >
+                                  <p className="text-muted">Staff ID:{item.staff_id}</p>
+                                  <p className="text-muted">Enquirer Name:{item.enquirer_name}</p>
+                                  <p className="text-muted">Enquirer Query:{item.enquirer_query}</p>
+                                  <p className="text-muted">Enquirer Address:{item.enquirer_address}</p>
+                                  <p className="text-muted">Enquirer Email:{item.enquirer_email}</p>
+                                  <p className="text-muted">Enquirer Mobile:{item.enquirer_mobile}</p>
+                                  <p className="text-muted">Enquirer Alternate Mobile:{item.enquirer_alternate_mobile}</p>
+                                  <p className="text-muted">FollowUp Message:{item.followUpMsg}</p>
+                                  <p className="text-muted">Enquirer Date:{item.enquiry_date}</p>
+                                  <p className="text-muted">Closure Reason :{item.closure_reason}</p>
+                                  <p>
+                                    <CCol md="3">
+                                  <CLabel htmlFor="text-input">FollowUp Message</CLabel>
+                                  </CCol>
+                                  <CCol xs="12" md="6">
+                                  <CInput id="text-input" name="text-input" placeholder="Followup Message" />
+                                  <CButton size="sm" color="info" className="ml-1" onClick={onUpdateEnquirer}>
+                                    Add    
+                                  </CButton>
+                                  </CCol>
+                                  </p>
+                                  <CCol md="3">
+                                  <CLabel htmlFor="text-input">Closure Reason</CLabel>
+                                  </CCol>
+                                  <CCol xs="12" md="6">
+                                  <CInput id="text-input" name="text-input" placeholder="Closure Reason" />
+                                  <CButton size="sm" color="info" className="ml-1" onClick={onUpdateEnquirer}>
+                                    Add    
+                                  </CButton>
+                                  </CCol>
+                                  <hr/>
+                                   <CButton size="sm" color="success" className="ml-1" onClick={onConfirmEnquirer} >
                                     Confirm{redirect1?<Redirect push to="/student/StudentForm"/>:null}
                                   </CButton>
                                   <CButton size="sm" color="info" className="ml-1" onClick={onUpdateEnquirer}>

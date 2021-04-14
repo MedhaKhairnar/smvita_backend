@@ -14,16 +14,16 @@ import {
 } from '@coreui/react'
 import { DocsLink } from 'src/reusable'
 import { Redirect } from 'react-router-dom';
-import usersData from '../users/UsersData'
+import BatchData from '../users/BatchData'
 
 
 
 const fields = [
   {key: 'id',_style: { width: '20%'}},
-  { key: 'name', _style: { width: '20%'} },
+  { key: 'batch_name', _style: { width: '20%'} },
   
-  { key: 'address', _style: { width: '20%'} },
-  { key: 'email', _style: { width: '50%'} },
+  { key: 'course_id', _style: { width: '20%'} },
+  { key: 'course_name', _style: { width: '50%'} },
   {
     key: 'show_details',
     label: '',
@@ -77,7 +77,7 @@ function onDeleteBatch() {
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={BatchData}
               fields={fields}
               hover
               display= "flex"
@@ -113,8 +113,13 @@ function onDeleteBatch() {
                                     Batch Information
                                   </h4>
                                   <p className="text-muted">Batch ID:{item.id}</p>
-                                  <p className="text-muted">Batch Name:{item.name}</p>
-                                  
+                                  <p className="text-muted">Batch Name:{item.batch_name}</p>
+                                  <p className="text-muted">Batch Active:{item.batch_is_active}</p>
+                                  <p className="text-muted">Course ID:{item.course_id}</p>
+                                  <p className="text-muted">Course Name:{item.course_name}</p>
+                                  <p className="text-muted">Batch Start Time:{item.batch_start_time}</p>
+                                  <p className="text-muted">Batch End Time:{item.batch_end_time}</p>
+                                  <p className="text-muted">Final Presentation Date:{item.final_presentation_date}</p>
                                   <CButton size="sm" color="info" className="ml-1" onClick={onUpdateBatch}>
                                     Edit{redirect?<Redirect push to="/batch/BatchForm"/>:null}
                                     

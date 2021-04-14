@@ -1,6 +1,6 @@
 const usersData = [
-  {id: 0, name: 'John Doe',address:'Nashik',email:'john@gmail.com',contact:123456789,Query:"CDAC-PGDAC",comment:"Fees", status: 'Pending'},
-  {id: 1, name: 'John Doe',address:'Nashik',email:'john@gmail.com',contact:123456789,Query:"CDAC-PGDAC",comment:"Fees", status: 'Pending'}
+  {id: 0, names: 'John Doe',address:'Nashik',email:'john@gmail.com',contact:123456789,Query:"CDAC-PGDAC",comment:"Fees", status: 'Pending'},
+  {id: 1, names: 'John Doe',address:'Nashik',email:'john@gmail.com',contact:123456789,Query:"CDAC-PGDAC",comment:"Fees", status: 'Pending'}
   /*{id: 2, name: 'Estavan Lykos', registered: '2018/02/01', role: 'Staff', status: 'Banned'},
   {id: 3, name: 'Chetan Mohamed', registered: '2018/02/01', role: 'Admin', status: 'Inactive'},
   {id: 4, name: 'Derick Maximinus', registered: '2018/03/01', role: 'Member', status: 'Pending'},

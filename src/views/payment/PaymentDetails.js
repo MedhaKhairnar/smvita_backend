@@ -19,16 +19,16 @@ import {
 } from '@coreui/react'
 import { DocsLink } from 'src/reusable'
 import { Redirect } from 'react-router-dom';
-import usersData from '../users/UsersData'
+import PaymentData from '../users/PaymentData'
 
 
 
 const fields = [
   {key: 'id',_style: { width: '20%'}},
-  { key: 'name', _style: { width: '20%'} },
+  { key: 'student_name', _style: { width: '20%'} },
   
-  { key: 'address', _style: { width: '20%'} },
-  { key: 'email', _style: { width: '50%'} },
+  { key: 'payment_amount', _style: { width: '20%'} },
+  { key: 'payment_remaining', _style: { width: '50%'} },
   {
     key: 'show_details',
     label: '',
@@ -80,17 +80,95 @@ if(e.target.value===1)
 }
   return (
     
-      <CRow >
+      < >
+        <CRow>
           <CFormGroup row>
                   <CCol md="6">
                     <CLabel htmlFor="text-input">Student ID</CLabel>
                   </CCol>
                   <CCol xs="12" md="6">
                     <CInput id="text-input" name="text-input" placeholder="Student ID" />
-                    <CFormText>Enter Student ID</CFormText>
+                    <hr/>
+                    <CButton type="submit" size="sm" color="primary"className="ml-1"> Submit</CButton>
                   </CCol>
                 </CFormGroup>
-      </CRow>
+                </CRow> 
+               
+                <CCard>
+            <CCardHeader>
+              Payment Table
+            </CCardHeader>
+            <CCardBody>
+            <CDataTable
+              items={PaymentData}
+              fields={fields}
+              hover
+              display= "flex"
+              striped
+              bordered
+              size="sm"
+            
+              itemsPerPage={10}
+              pagination
+              scopedSlots = {{
+                'show_details':
+                          (item, index)=>{
+                            return (
+                              <td className="py-2">
+                                <CButton
+                                  color="primary"
+                                  variant="outline"
+                                  shape="square"
+                                  size="sm"
+                                  onClick={()=>{toggleDetails(index)}}
+                                >
+                                  {details.includes(index) ? 'Hide' : 'Show'}
+                                </CButton>
+                              </td>
+                              )
+                          },
+                        'details':
+                            (item, index)=>{
+                              return (
+                              <CCollapse show={details.includes(index)}>
+                                <CCardBody>
+                                  <h4>
+                                    Batch Information
+                                  </h4>
+                                  <p className="text-muted">Student ID:{item.student_id}</p>
+                                  <p className="text-muted">Batch ID:{item.batch_id}</p>
+                                  <p className="text-muted">Student Name:{item.student_name}</p>
+                                  <p className="text-muted">Course Fees:{item.course_fees}</p>
+                                  <p className="text-muted">Payment ID:{item.payment_id}</p>
+                                  <p className="text-muted">Payment Type:{item.payment_type}</p>
+                                  <p className="text-muted">Payment Date:{item.payment_date}</p>
+                                  <p className="text-muted">Amount Made by this Transaction:{item.payment_amount}</p>
+                                  <p className="text-muted">Total Amount Paid:{item.payment_total}</p>
+                                  <p className="text-muted">Remaining Amount:{item.payment_remaining}</p>
+                                  <p className="text-muted">Receipt Send:{item.payment_receipt_send}</p>
+                                  <CButton size="sm" color="info" className="ml-1" >
+                                    Edit{redirect?<Redirect push to="/batch/BatchForm"/>:null}
+                                    
+                                  </CButton>
+                                  <CButton size="sm" color="danger" className="ml-1">
+                                    Delete
+                                  </CButton>
+                                </CCardBody>
+                              </CCollapse>
+                            )
+                          }
+                }}
+            />
+            
+    {/*<CButton  marginLeft= "auto"  color="secondary">Edit</CButton>
+    <CButton color="secondary">Confirm</CButton>
+    <CButton color="secondary">Delete</CButton>
+  */}
+               
+            </CCardBody>
+          </CCard>
+         
+      </>
 
     )
 }

@@ -14,16 +14,17 @@ import {
 } from '@coreui/react'
 import { DocsLink } from 'src/reusable'
 import { Redirect } from 'react-router-dom';
-import usersData from '../users/UsersData'
+import usersData from '../users/UsersData';
+import StudentData from '../users/StudentData';
 
 
 
 const fields = [
   {key: 'id',_style: { width: '20%'}},
-  { key: 'name', _style: { width: '20%'} },
+  { key: 'student_name', _style: { width: '20%'} },
   
-  { key: 'address', _style: { width: '20%'} },
-  { key: 'email', _style: { width: '50%'} },
+  { key: 'course_name', _style: { width: '20%'} },
+  { key: 'batch_name', _style: { width: '50%'} },
   {
     key: 'show_details',
     label: '',
@@ -73,11 +74,11 @@ function onDeleteStudent() {
         <CCol >
           <CCard>
             <CCardHeader>
-              Course Table
+              Student Table
             </CCardHeader>
             <CCardBody>
             <CDataTable
-              items={usersData}
+              items={StudentData}
               fields={fields}
               hover
               display= "flex"
@@ -110,11 +111,21 @@ function onDeleteStudent() {
                               <CCollapse show={details.includes(index)}>
                                 <CCardBody>
                                   <h4>
-                                    Courses Information
+                                    Student Information
                                   </h4>
                                   <p className="text-muted">Student ID:{item.id}</p>
-                                  <p className="text-muted">Student Name:{item.name}</p>
-                                  
+                                  <p className="text-muted">Student Name:{item.student_name}</p>
+                                  <p className="text-muted">Student Course:{item.course_name}</p>
+                                  <p className="text-muted">Student Batch:{item.batch_name}</p>
+                                  <p className="text-muted"> Gender:{item.student_gender}</p>
+                                  <p className="text-muted">Student Address:{item.student_address}</p>
+                                  <p className="text-muted"> Date of Birth:{item.student_DateOfBirth}</p>
+                                  <p className="text-muted">Student Age:{item.student_age}</p>
+                                  <p className="text-muted">Student Email:{item.student_email}</p>
+                                  <p className="text-muted">Student Qualification:{item.student_qualification}</p>
+                                  <p className="text-muted">Student Mobile:{item.student_mobile}</p>
+                                  <p className="text-muted">Student Alternate Mobile:{item.student_alternate_mobile}</p>
+
                                   <CButton size="sm" color="info" className="ml-1" onClick={onUpdateStudent}>
                                     Edit{redirect?<Redirect push to="/student/StudentForm"/>:null}
                                     
