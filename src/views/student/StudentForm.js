@@ -52,8 +52,8 @@ const StudentForm = () => {
       DOB:'',
       Age:'',
       Qualification:'',
-      batchId:'',
-      paymentMasterId:'',
+      batchId:[],
+      paymentMasterId:[],
       UserName:'',
       Password:''
     },
@@ -63,7 +63,14 @@ const StudentForm = () => {
      .min(3, 'Name should be greater than 3 characters')
        .max(15, 'Name should not exceed 15 Characters')
   
-       .required('Please Enter Customer Name'),
+       .required('Please Enter Student Name'),
+    
+    
+    Password: yup.string()
+     .min(8, 'Password should be at least 8 characters')
+       .max(15, 'Password should not exceed 15 Characters')
+       .matches(/(?=.*[0-9])/, "Password must contain a number.")
+       .required('Please Enter Student Password'),
   
   
   
@@ -95,7 +102,7 @@ const StudentForm = () => {
           headers: { 'Content-type': 'application/json' },
           body: demo
       }).then(() => {
-          console.log("Customer added");
+          console.log("Student added");
       });
     },
   }); 
@@ -117,7 +124,7 @@ const StudentForm = () => {
                   <CCol md="3">
                     <CLabel htmlFor="text-input">Student Name</CLabel>
                   </CCol>
-                  <CCol xs="6" md="6">
+                  <CCol xs="6"g md="6">
                     <CInput id="text-input" name="Name" placeholder="Text" value={formik.values.Name} {...formik.getFieldProps("Name")}/>
                     {formik.touched.Name && formik.errors.Name ? <span style={{color:'red'}}>{formik.errors.Name}</span> : null}
                     <CFormText>Enter Full Name</CFormText>
@@ -143,15 +150,18 @@ const StudentForm = () => {
                   </CCol>
                   <CCol md="9">
                     <CFormGroup variant="custom-radio" inline>
-                      <CInputRadio custom id="inline-radio1" name="Gender" value={formik.values.Gender} {...formik.getFieldProps("Gender")} />
+                      <CInputRadio custom id="inline-radio1" name="Gender" value="Male" onChange={formik.handleChange}
+                    defaultChecked={formik.values.gender=== "Male"} /*{...formik.getFieldProps("Gender")}*/ />
                       <CLabel variant="custom-checkbox" htmlFor="inline-radio1">Male</CLabel>
                     </CFormGroup>
                     <CFormGroup variant="custom-radio" inline>
-                      <CInputRadio custom id="inline-radio2" name="Gender" value={formik.values.Gender} {...formik.getFieldProps("Gender")}/>
+                      <CInputRadio custom id="inline-radio2" name="Gender" value="Female" onChange={formik.handleChange}
+                    defaultChecked={formik.values.gender=== "Female"}/*{...formik.getFieldProps("Gender")}*//>
                       <CLabel variant="custom-checkbox" htmlFor="inline-radio2">Female</CLabel>
                     </CFormGroup>
                     <CFormGroup variant="custom-radio" inline>
-                      <CInputRadio custom id="inline-radio3" name="Gender" value={formik.values.Gender} {...formik.getFieldProps("Gender")} />
+                      <CInputRadio custom id="inline-radio3" name="Gender" value="Other" onChange={formik.handleChange}
+                    defaultChecked={formik.values.gender=== "Other"} /*{...formik.getFieldProps("Gender")}*/ />
                       <CLabel variant="custom-checkbox" htmlFor="inline-radio3">Other</CLabel>
                     </CFormGroup>               
                   </CCol>
@@ -235,7 +245,7 @@ const StudentForm = () => {
                     <CLabel htmlFor="select">Batch</CLabel>
                   </CCol>
                   <CCol xs="6" md="4">
-                    <CSelect custom name="batchID" id="select" value={formik.values.batchID} {...formik.getFieldProps("batchID")}>
+                    <CSelect custom name="batchId" id="select" value={formik.values.batchId} {...formik.getFieldProps("batchId")}>
                       <option value="0">Select Batch</option>
                       <option value="1">A</option>
                       <option value="2">B</option>
@@ -263,7 +273,8 @@ const StudentForm = () => {
                     <CLabel htmlFor="text-input">Transaction ID</CLabel>
                   </CCol>
                   <CCol xs="6" md="6">
-                    <CInput id="text-input" name="paymentMasterID" placeholder="Transaction ID" value={formik.values.paymentMasterID} {...formik.getFieldProps("paymentMasterID")}/>
+                    <CInput id="text-input" name="paymentMasterId" placeholder="Transaction ID" value={formik.values.paymentMasterId}
+                     {...formik.getFieldProps("paymentMasterId")}/>
                     <CFormText>Enter TransactionID</CFormText>
                   </CCol>
                 </CFormGroup>
@@ -366,7 +377,7 @@ const StudentForm = () => {
                   </CCol>
                   <CCol xs="6" md="6">
                     <CInput id="text-input" name="Password" placeholder="Text" value={formik.values.Password} {...formik.getFieldProps("Password")}/>
-                    
+                    {formik.touched.Password && formik.errors.Password ? <span style={{color:'red'}}>{formik.errors.Password}</span> : null}
                     <CFormText>Enter Password</CFormText>
                   </CCol>
                 </CFormGroup>
