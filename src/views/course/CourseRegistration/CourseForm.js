@@ -272,51 +272,12 @@ const CourseForm = () => {
                 </CFormGroup>
                 <CFormGroup row>
                   <CCol md="3">
-                    <CLabel>Eligible AgeGroup</CLabel>
+                    <CLabel htmlFor="text-input">Eligible AgeGroup</CLabel>
                   </CCol>
-                  <CCol md="9">
-                    <CFormGroup variant="checkbox" className="checkbox">
-                      <CInputCheckbox
-                        id="checkbox1"
-                        name="checkbox1"
-                        value="option1"
-                      />
-                      <CLabel
-                        variant="checkbox"
-                        className="form-check-label"
-                        htmlFor="checkbox1"
-                      >
-                        Option 1
-                      </CLabel>
-                    </CFormGroup>
-                    <CFormGroup variant="checkbox" className="checkbox">
-                      <CInputCheckbox
-                        id="checkbox2"
-                        name="checkbox2"
-                        value="option2"
-                      />
-                      <CLabel
-                        variant="checkbox"
-                        className="form-check-label"
-                        htmlFor="checkbox2"
-                      >
-                        Option 2
-                      </CLabel>
-                    </CFormGroup>
-                    <CFormGroup variant="checkbox" className="checkbox">
-                      <CInputCheckbox
-                        id="checkbox3"
-                        name="checkbox3"
-                        value="option3"
-                      />
-                      <CLabel
-                        variant="checkbox"
-                        className="form-check-label"
-                        htmlFor="checkbox3"
-                      >
-                        Option 3
-                      </CLabel>
-                    </CFormGroup>
+                  <CCol xs="6" md="6">
+                    <CInput id="text-input" name="AgeGroupType" placeholder="AgeGroupType" value={formik.values.AgeGroupType} {...formik.getFieldProps("AgeGroupType")} />
+                    {formik.touched.Fees && formik.errors.AgeGroupType ? <span style={{color:'AgeGroupType'}}>{formik.errors.AgeGroupType}</span> : null}
+                    <CFormText>Enter AgeGroup</CFormText>
                   </CCol>
                 </CFormGroup>
 
@@ -333,32 +294,22 @@ const CourseForm = () => {
                     />
                   </CCol>
                 </CFormGroup>
-                <CFormGroup row>
-                  <CLabel col md="3" htmlFor="file-input">
-                    Upload Video
-                  </CLabel>
+                {/*<CFormGroup row>
+                  <CLabel col md="3" htmlFor="file-input">Upload Video</CLabel>
                   <CCol xs="6" md="6">
                     <CInputFile id="file-input" name="file-input" />
                   </CCol>
                 </CFormGroup>
-              </CCardBody>
-              <CCardFooter>
-                <CButton
-                  type="submit"
-                  size="sm"
-                  color="primary"
-                  className="ml-1"
-                >
-                  {" "}
-                  Submit
-                </CButton>
-                <CButton type="reset" size="sm" color="danger" className="ml-1">
-                  Reset
-                </CButton>
-              </CCardFooter>
-            </CForm>
-          </CCard>
-        </CCol>
+                */}
+              
+            </CCardBody>  
+            <CCardFooter>
+              <CButton type="submit" size="sm" color="primary"className="ml-1"> Submit</CButton>
+              <CButton type="reset" size="sm" color="danger"className="ml-1">Reset</CButton>
+            </CCardFooter>
+            </CForm>  
+            </CCard>
+      </CCol>      
       </CRow>
     </>
   );
